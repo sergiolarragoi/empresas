@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2018 a las 15:48:34
--- Versión del servidor: 10.1.35-MariaDB
--- Versión de PHP: 7.2.9
+-- Tiempo de generación: 24-10-2018 a las 03:36:09
+-- Versión del servidor: 10.1.28-MariaDB
+-- Versión de PHP: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,6 +28,24 @@ DELIMITER $$
 --
 -- Procedimientos
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsertNewUser` (IN `_username` VARCHAR(50), IN `_password` VARCHAR(255), IN `_usertype` VARCHAR(255), IN `_name` VARCHAR(255), IN `_surname` VARCHAR(255), IN `_email` VARCHAR(255))  NO SQL
+INSERT INTO `user`(
+    `username`,
+    `password`,
+    `usertype`,
+    `name`,
+    `surname`,
+    `email`
+)
+VALUES(
+    _username,
+    _password,
+    _usertype,
+    _name,
+    _surname,
+    _email
+)$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spSelectIdByUser` (IN `_user` VARCHAR(50))  NO SQL
 BEGIN
     SELECT
