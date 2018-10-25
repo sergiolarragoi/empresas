@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+include ("../model/userClass.php");
+include ("../model/userModel.php");
+include ("../controller/loginController.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,8 +20,13 @@ session_start();
     </head>
     <body>
         <?php
-        
         echo "Ongi etorri!: " . $_SESSION['name'] . " Sesioa zabaldu duzu";
         ?>
+        <a href="../controller/logoutController.php">Salir</a>
+
+<?php
+//foreach ()
+?>
+
     </body>
 </html>

@@ -85,22 +85,10 @@ class userModel extends userClass {
     public function insertNewUser() {
 
         $this->OpenConnect();
-        $sql = "CALL spInsertNewUser('" . $this->getUsername() .",". $this->getPassword() .",". $this->getUsertype() .",". $this->getName() .",". $this->getSurname() .",". $this->getEmail() . "')";
-        echo $sql;
-        $this->list = array();
-        $result = $this->link->query($sql);
+        $sql = "CALL spInsertNewUser('" . $this->getUsername() . "','" . $this->getPassword() . "','" . $this->getUsertype() . "','" . $this->getName() . "','" . $this->getSurname() . "','" . $this->getEmail() . "')";
+        
+        $this->link->query($sql);
 
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-
-            
-            $this->setUsername($row['username']);
-            $this->setPassword($row['password']);
-            $this->setUsertype($row['usertype']);
-            $this->setName($row['name']);
-            $this->setSurname($row['surname']);
-            $this->setEmail($row['email']);
-        }
-        mysqli_free_result($result);
 
         $this->CloseConnect();
     }

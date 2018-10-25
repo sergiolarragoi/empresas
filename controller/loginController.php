@@ -36,7 +36,7 @@ if ($usuarioLog->getIdUser() != null) {
 
 
 
-    header('location: ../view/userView.php');
+    header('location: ../view/empresas.php');
 } else {
     //Si no devuelve una línea, aviso de datos incorrectos
 

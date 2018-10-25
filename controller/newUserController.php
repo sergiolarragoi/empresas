@@ -12,10 +12,13 @@ $name = filter_input(INPUT_POST, 'name');
 $surname = filter_input(INPUT_POST, 'apellidos');
 $email = filter_input(INPUT_POST, 'email');
 
+//Cuanto más cost (10-15),encriptación más potente.
+$options = ['cost'=>12];
+$passwordEncrypted = password_hash($password, PASSWORD_BCRYPT, $options);
 
 $newUser = new userModel();
 $newUser->setUsername($username);
-$newUser->setPassword($password);
+$newUser->setPassword($passwordEncrypted);
 $newUser->setUsertype($usertype);
 $newUser->setName($name);
 $newUser->setSurname($surname);
