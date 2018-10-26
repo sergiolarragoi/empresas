@@ -41,6 +41,6 @@ if ($usuarioLog->getIdUser() != null) {
     //Si no devuelve una línea, aviso de datos incorrectos
 
     echo '<script>alert ("No encontramos ningún usuario con estos datos.\nPor favor, vuelva a intentarlo.");</script>';
-
-    header('location: ../index.php');
+//
+//    header('location: ../index.php');
 }    

@@ -3,7 +3,7 @@ session_start();
 
 include ("../model/userClass.php");
 include ("../model/userModel.php");
-include ("../controller/loginController.php");
+//include ("../controller/loginController.php");
 ?>
 <!DOCTYPE html>
 <html>
