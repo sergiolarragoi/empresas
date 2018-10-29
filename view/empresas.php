@@ -1,7 +1,5 @@
 <?php
 require_once '../controller/securityController.php';
-//include ("../model/userClass.php");
-//include ("../model/userModel.php");
 include "../controller/companyController.php";
 ?>
 <!DOCTYPE html>
@@ -20,13 +18,13 @@ include "../controller/companyController.php";
     <body>
 
 
-        <?php foreach ($userCompany as $image) { ?> 
-
-            <img src="<?php echo $image->getLogo(); ?>" alt=""/>        
-
-
+        <?php foreach ($listaCompany as $company) { ?> 
+            
+        <a href="<?php echo $company->getWeb(); ?>" target="_blank"><img style="width: 150px; height: 150px;" src= "<?php echo $company->getLogo(); ?>" alt=""/></a>
+            
+            
         <?php } ?>
-
+             
 
     </body>
 </html>

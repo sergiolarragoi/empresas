@@ -41,15 +41,17 @@ class companyModel extends companyClass {
 
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
-//            $this->setIdUser($row['idUser']);
-//            $this->setUsername($row['username']);
-//            $this->setPassword($row['password']);
-//            $this->setUsertype($row['usertype']);
-//            $this->setName($row['name']);
-//            $this->setSurname($row['surname']);
-//            $this->setEmail($row['email']);
-            $this->setLogo($row['logo']);
+            $new = new companyClass();
+            $new->setIdCompany($row['idCompany']);
+            $new->setName($row['name']);
+            $new->setTel($row['tel']);
+            $new->setWeb($row['web']);
+            $new->setAddress($row['address']);
+            $new->setIdSector($row['idSector']);
+            $new->setLogo($row['logo']);
+            array_push($this->list, $new);
         }
+//        var_dump($this->list);
         mysqli_free_result($result);
 
         $this->CloseConnect();
