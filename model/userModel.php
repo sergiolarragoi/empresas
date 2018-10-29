@@ -92,5 +92,18 @@ class userModel extends userClass {
 
         $this->CloseConnect();
     }
+    
+//    public function CompanyUser() {
+//        
+//        $this->OpenConnect();  // konexio zabaldu  - abrir conexión
+//        $sql = "CALL spCompanyUser('" . $this->getIdUser() . "')"; // SQL sententzia - sentencia SQL
+////        echo $sql;
+//        $this->list = array(); // objetuaren list atributua array bezala deklaratzen da - 
+//        //se declara como array el atributo list del objeto
+//
+//        $result = $this->link->query($sql); // result-en ddbb-ari eskatutako informazio dena gordetzen da
+//        // se guarda en result toda la información solicitada a la bbdd //$result devuelve la tabla
+//        
+//    }
 
 }

@@ -1,9 +1,8 @@
 <?php
-session_start();
-
-include ("../model/userClass.php");
-include ("../model/userModel.php");
-//include ("../controller/loginController.php");
+require_once '../controller/securityController.php';
+//include ("../model/userClass.php");
+//include ("../model/userModel.php");
+include "../controller/companyController.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,14 +18,15 @@ include ("../model/userModel.php");
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <?php
-        echo "Ongi etorri!: " . $_SESSION['name'] . " Sesioa zabaldu duzu";
-        ?>
-        <a href="../controller/logoutController.php">Salir</a>
 
-<?php
-//foreach ()
-?>
+
+        <?php foreach ($userCompany as $image) { ?> 
+
+            <img src="<?php echo $image->getLogo(); ?>" alt=""/>        
+
+
+        <?php } ?>
+
 
     </body>
 </html>

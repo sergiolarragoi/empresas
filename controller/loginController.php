@@ -2,8 +2,8 @@
 
 session_start();
 
-require_once("../model/userClass.php");
-require_once("../model/userModel.php");
+require_once '../model/userClass.php';
+require_once '../model/userModel.php';
 
 $user = filter_input(INPUT_POST, 'user');
 $password = filter_input(INPUT_POST, 'pwd');
@@ -28,8 +28,8 @@ if ($usuarioLog->getIdUser() != null) {
     $_SESSION['password'] = $usuarioLog->getPassword();
     $_SESSION['usertype'] = $usuarioLog->getUsertype();
     $_SESSION['name'] = $usuarioLog->getName();
-    $_SESSION['surname'] = $usuarioLog->getUsername();
-    $_SESSION['email'] = $usuarioLog->getPassword();
+    $_SESSION['surname'] = $usuarioLog->getSurname();
+    $_SESSION['email'] = $usuarioLog->getEmail();
     $_SESSION['start'] = time();
     $_SESSION['expire'] = $_SESSION['start'] + (30 * 60); //La sesión expirará en este periodo de tiempo
 
