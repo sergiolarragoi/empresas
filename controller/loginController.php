@@ -1,25 +1,51 @@
 <?php
 
-session_start();
-
-require_once '../model/userClass.php';
-require_once '../model/userModel.php';
+//include_once '../model/connect_data.php';
+include_once '../model/userClass.php';
+include_once '../model/userModel.php';
 
 $user = filter_input(INPUT_POST, 'user');
 $password = filter_input(INPUT_POST, 'pwd');
 
-
+//$user = new userModel();
 $usuarioLog = new userModel();
 $usuarioLog->setUsername($user);
 $usuarioLog->setPassword($password);
 
-
+//$idUser=$user->loginEncripted();
 
 //Se comprueba en la BBDD si existe ese usuario
-$usuarioLog->comprobarUsuario($password);
+$usuarioLog->comprobarUsuario();
+
+//$passEncripted = $this->setPassword($row['password']);
+
+            if (password_verify($password , $usuarioLog->getPassword())) {
+//                header("Location: ../view/empresas.php");
+//                var_dump($usuarioLog->getPassword());
+                 header('location: ../view/empresas.php');
+            } else {
+                echo 'Contraseña incorrecta';
+            }
+//  if ($idUser > 0) {
+//    session_start();
+//    $_SESSION['idUser'] = $idUser;
+//    $_SESSION['username'] = $username;
+//
+//    if ($user->AdminVerify()) {
+//
+//        $_SESSION['admin'] = 1;
+//    }
+//    header("Location: homeController.php");
+//} else {
+//    header("Location: ../index.php");
+//}
+
 
 if ($usuarioLog->getIdUser() != null) {
     //Si la comprobación devuelve una línea, se recogen los datos del usuario y se cargan en la sesión.
+    
+    session_start();
+    
     $usuarioLog->selectbyIdUsuario();
 
     $_SESSION['loggedin'] = true;
@@ -36,7 +62,7 @@ if ($usuarioLog->getIdUser() != null) {
 
 
 
-    header('location: ../view/empresas.php');
+//    header('location: ../view/empresas.php');
 } else {
     //Si no devuelve una línea, aviso de datos incorrectos
 

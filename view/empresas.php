@@ -17,7 +17,8 @@ include "../controller/companyController.php";
     </head>
     <body>
 
-
+        <a href="addCompany.php">Añadir compañias</a>
+        
         <?php foreach ($listaCompany as $company) { ?> 
             
         <a href="<?php echo $company->getWeb(); ?>" target="_blank"><img style="width: 150px; height: 150px;" src= "<?php echo $company->getLogo(); ?>" alt=""/></a>

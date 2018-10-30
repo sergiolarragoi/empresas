@@ -28,7 +28,7 @@ class userModel extends userClass {
         mysqli_close($this->link);
     }
 
-    public function comprobarUsuario($password) {
+    public function comprobarUsuario() {
         $this->OpenConnect();  // konexio zabaldu  - abrir conexión
         $sql = "CALL spSelectIdByUser('" . $this->getUsername() . "')"; // SQL sententzia - sentencia SQL
 //        echo $sql;
@@ -41,14 +41,13 @@ class userModel extends userClass {
 
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
-            $iduser = $this->setIdUser($row['idUser']);
-            $passEncripted = $this->setPassword($row['password']);
-
-            if (password_verify($password, $passEncripted)) {
-                return $iduser;
-            } else {
-                return null;
-            }
+            $this->setIdUser($row['idUser']);
+            $this->setUsername($row['username']);
+            $this->setPassword($row['password']);
+            $this->setUsertype($row['usertype']);
+            $this->setName($row['name']);
+            $this->setSurname($row['surname']);
+            $this->setEmail($row['email']);
         }
 
 
