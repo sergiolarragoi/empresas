@@ -17,7 +17,7 @@ include "../controller/companyController.php";
     </head>
     <body>
 
-        <a href="addCompany.php">Añadir compañias</a>
+        <a href="../controller/addCompanyController.php">Añadir compañias</a>
         
         <?php foreach ($listaCompany as $company) { ?> 
             
